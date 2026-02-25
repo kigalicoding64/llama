@@ -200,10 +200,9 @@ class MoE(torch.nn.Module):
         out_aD = self.shared_expert(x_aD)
         routed_out_eg_D = self.experts(routed_in_EG_D.detach())
 
-        router_indices_EG_D = router_indices.reshape(-1, 1).expand(-1, D)
         out_aD.scatter_add_(
             dim=0,
-            index=router_indices_EG_D,
+            index=router_indices.reshape(-1, 1).expand(-1, D),
             src=routed_out_eg_D.view(-1, D),
         )
         out_aD = reduce_from_model_parallel_region(out_aD)
