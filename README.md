@@ -121,7 +121,7 @@ For more flexibility in running inference (including using other providers), ple
 We also provide downloads on [Hugging Face](https://huggingface.co/meta-llama), in both transformers and native `llama4` formats. To download the weights from Hugging Face, please follow these steps:
 
 - Visit one of the repos, for example [meta-llama/Llama-4-Scout-17B-16E](https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E).
-- Read and accept the license. Once your request is approved, you'll be granted access to all Llama 3.1 models as well as previous versions. Note that requests used to take up to one hour to get processed.
+- Read and accept the license. Once your request is approved, you'll be granted access to all Llama 4 models as well as previous versions. Note that requests used to take up to one hour to get processed.
 - To download the original native weights to use with this repo, click on the "Files and versions" tab and download the contents of the `original` folder. You can also download them from the command line if you `pip install huggingface-hub`:
 
 ```bash
