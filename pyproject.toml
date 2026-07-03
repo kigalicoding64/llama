@@ -10,7 +10,7 @@ authors = [
 ]
 description = "Llama models"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
     "PyYAML",
     "jinja2>=3.1.6",
@@ -19,6 +19,7 @@ dependencies = [
     "Pillow",
     "rich",
     "httpx",
+    "fastapi",
     "termcolor",
     "huggingface-hub",
 ]
@@ -35,6 +36,7 @@ example_chat_completion = "llama_models.scripts.example_chat_completion:main"
 example_text_completion = "llama_models.scripts.example_text_completion:main"
 llama4_completion = "llama_models.llama4.scripts.completion:main"
 llama4_chat_completion = "llama_models.llama4.scripts.chat_completion:main"
+llama-online-server = "models.online.server:main"
 
 [project.optional-dependencies]
 dev = [
@@ -44,6 +46,12 @@ dev = [
     "mypy",
     "ruff",
 ]
+server = [
+    "fastapi",
+    "uvicorn[standard]",
+    "transformers",
+    "accelerate",
+]
 torch = [
     "torch",
     "torchvision",
@@ -52,6 +60,9 @@ torch = [
     "blobfile",
     "fbgemm-gpu-genai==1.1.2",
 ]
+
+[tool.vercel]
+entrypoint = "app:app"
 
 [tool.setuptools]
 package-dir = {"llama_models" = "llama_models"}
